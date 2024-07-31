@@ -8,7 +8,7 @@ from habits.services import send_telegram_message
 def send_reminder():
     """Отправляет напоминание пользователю о его привычке"""
 
-    habits = Habit.object.all()
+    habits = Habit.objects.all()
     for habit in habits:
         if habit.start_time == datetime.now().time():
             send_telegram_message(habit.owner.telegram_id, f"Напоминаю вам о вашей привычке: {habit.action}")
