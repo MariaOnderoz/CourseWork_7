@@ -10,5 +10,5 @@ def send_reminder():
 
     habits = Habit.objects.all()
     for habit in habits:
-        if habit.start_time == datetime.now().time():
+        if habit.start_time == datetime.datetime.now().time():
             send_telegram_message(habit.owner.telegram_id, f"Напоминаю вам о вашей привычке: {habit.action}")
